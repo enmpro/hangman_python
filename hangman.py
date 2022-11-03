@@ -1,3 +1,5 @@
+# simple hang man game
+
 import random
 
 def welcome():
@@ -5,10 +7,10 @@ def welcome():
     while True:
         name = input("Welcome! What is your name?: ")
         if name.isalpha() == True:
-            print(f"Welcome {name}!")
+            print(f"Welcome {name}!\n")
             break
         else:
-            print("Please enter a valid name.")
+            print("\nPlease enter a valid name.\n")
             continue
         
 def playAgain():
@@ -22,6 +24,7 @@ def playAgain():
 def gameRun():
     gameRunning = True
     wordsList = ["Python", "Java", "Programming"]
+    guessCorrect = ["Nice Guess!", "Awesome!", "Good job!"]
     wordToGuess = random.choice(wordsList)
     wordGuessList = []
     wordGuessListUnderscore = []
@@ -32,14 +35,15 @@ def gameRun():
             
         print("Guess the word: ", "".join(wordGuessListUnderscore))
         userGuess = input("Enter a letter: ")
-        if userGuess.isalpha() != True:
-            
+        if userGuess.isalpha() == True:
+            for x in wordGuessList:
+                if userGuess.lower() == x.lower():
+                    print(random.choice(guessCorrect))
+                    
+        else:
+            print("\nPlease enter a letter.\n")
+            continue
         
-        
-        
-        if userGuess in wordGuessList:
-            print("Hello")
-    
 
 welcome()
 gameRun()
