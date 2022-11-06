@@ -36,9 +36,10 @@ def gameRun():
         print("Guess the word: ", "".join(wordGuessListUnderscore))
         userGuess = input("Enter a letter: ")
         if userGuess.isalpha() == True:
-            for x in wordGuessList:
-                if userGuess.lower() == x.lower():
+            for x in range(len(wordGuessList)):
+                if userGuess.lower() == wordGuessList[x].lower():
                     print(random.choice(guessCorrect))
+                    wordGuessListUnderscore[x] = wordGuessList[x]
                     
         else:
             print("\nPlease enter a letter.\n")
