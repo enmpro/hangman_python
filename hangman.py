@@ -16,9 +16,10 @@ def welcome():
 def playAgain():
     while True:
         userResponse = input("Would you like to play again?: ")
-        if userResponse.lower() == "y":
+        if userResponse.lower() == "y" or userResponse.lower() == "yes":
             break
-        elif userResponse.lower() == "n":
+        elif userResponse.lower() == "n" or userResponse.lower() == "no":
+            print("\nThanks for playing!\n")
             exit(0)
             
 def gameRun():
@@ -66,4 +67,6 @@ def gameRun():
         
 
 welcome()
-gameRun()
+while True:
+    gameRun()
+    playAgain()
